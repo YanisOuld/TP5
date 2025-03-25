@@ -54,9 +54,6 @@ class SimpleUser(HttpUser):
     wait_time = between(1, 5)  # Simulate a wait time between requests
     weight = 1
 
-    def on_start(self):
-        print("SimpleUser started")
-
 class HeavyUser(HttpUser):
     tasks = [HeavyTasks]
     wait_time = between(5, 10)
