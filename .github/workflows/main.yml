@@ -27,7 +27,7 @@ jobs:
           locust -f locustfile.py --headless --users 1000 --spawn-rate 10 --run-time 2m
       - name: Upload Locust results
         if: always()
-        uses: actions/upload-artifact@v3  # Mis à jour vers v3
+        uses: actions/upload-artifact@v4
         with:
           name: locust-results
           path: locust_results/
