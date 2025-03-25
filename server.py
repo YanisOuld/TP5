@@ -13,7 +13,7 @@ def home():
 def fast():
     return jsonify({"message": "This was quick!"})
 
-# Simulate a medium processing endpoint
+# Simulate a medium processing endpoint 
 @app.route('/medium')
 def medium():
     time.sleep(0.5)  # Simulate processing time
