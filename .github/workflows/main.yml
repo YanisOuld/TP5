@@ -19,7 +19,7 @@ jobs:
           pip install flask locust
       - name: Start Flask server
         run: |
-          python flask_app.py & 
+          python server.py & 
           echo "Waiting for Flask server to start..."
           sleep 30
       - name: Create locust_results folder
