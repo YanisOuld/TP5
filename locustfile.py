@@ -61,7 +61,3 @@ class HeavyUser(HttpUser):
     tasks = [HeavyTasks]
     wait_time = between(5, 10)
     weight = 1
-
-    def on_start(self):
-        print("HeavyUser started")
-
