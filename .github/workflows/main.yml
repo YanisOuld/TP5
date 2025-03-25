@@ -24,10 +24,4 @@ jobs:
           sleep 100
       - name: Run Locust tests
         run: |
-          locust -f locustfile.py --headless --users 1000 --spawn-rate 10 --run-time 2m --host http://localhost:5000
-      - name: Upload Locust results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: locust-results
-          path: locust_results/
+          locust -f locustfile.py --headless --users 10000 --spawn-rate 100 --run-time 2m --host http://localhost:5000 --logfile locust_results/locust_log.txt
