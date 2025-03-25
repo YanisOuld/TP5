@@ -12,23 +12,22 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.10"
+          python-version: '3.10'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install flask locust
       - name: Start Flask server
         run: |
-          python flask_app.py  &
+          python flask_app.py &
           echo "Waiting for Flask server to start"
           sleep 30
       - name: Run Locust tests
         run: |
-          locust -f locustfile.py --headless --users 1000 --spawn-rate 10 --run-time 2m --csv locust_results/results
-  
+          locust -f locustfile.py --headless --users 1000 --spawn-rate 10 --run-time 2m
       - name: Upload Locust results
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Mis à jour vers v3
         with:
           name: locust-results
           path: locust_results/
