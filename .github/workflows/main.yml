@@ -21,10 +21,10 @@ jobs:
         run: |
           python flask_app.py &
           echo "Waiting for Flask server to start"
-          sleep 30
+          sleep 100
       - name: Run Locust tests
         run: |
-          locust -f locustfile.py --headless --users 1000 --spawn-rate 10 --run-time 2m
+          locust -f locustfile.py --headless --users 1000 --spawn-rate 10 --run-time 2m --host http://localhost:5000
       - name: Upload Locust results
         if: always()
         uses: actions/upload-artifact@v4
