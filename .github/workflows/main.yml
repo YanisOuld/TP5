@@ -28,12 +28,3 @@ jobs:
       - name: Run Locust tests
         run: |
           locust -f locustfile.py --headless --users 10000 --spawn-rate 100 --run-time 2m --host http://localhost:5000 --logfile locust_results/locust_log.txt
-      - name: List locust_results folder
-        run: |
-          ls -l locust_results/
-      - name: Upload Locust results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: locust-results
-          path: locust_results/
