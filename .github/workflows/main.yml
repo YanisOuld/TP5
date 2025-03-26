@@ -22,9 +22,6 @@ jobs:
           python server.py & 
           echo "Waiting for Flask server to start..."
           sleep 30
-      - name: Create locust_results folder
-        run: |
-          mkdir -p locust_results
       - name: Run Locust tests
         run: |
-          locust -f locustfile.py --headless --users 10000 --spawn-rate 100 --run-time 2m --host http://localhost:5000 --logfile locust_results/locust_log.txt
+          locust -f locustfile.py --headless --users 10000 --spawn-rate 100 --run-time 2m --host http://localhost:5000
